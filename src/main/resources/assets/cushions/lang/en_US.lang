@@ -1,0 +1,22 @@
+# Items
+tile.cushions.blockCushion.name=Cushion
+tile.cushions.blockCushion.black.name=Black Cushion
+tile.cushions.blockCushion.blue.name=Blue Cushion
+tile.cushions.blockCushion.brown.name=Brown Cushion
+tile.cushions.blockCushion.cyan.name=Cyan Cushion
+tile.cushions.blockCushion.gray.name=Gray Cushion
+tile.cushions.blockCushion.green.name=Green Cushion
+tile.cushions.blockCushion.lightBlue.name=Light blue Cushion
+tile.cushions.blockCushion.lime.name=Lime Cushion
+tile.cushions.blockCushion.magenta.name=Magenta Cushion
+tile.cushions.blockCushion.orange.name=Orange Cushion
+tile.cushions.blockCushion.pink.name=Pink Cushion
+tile.cushions.blockCushion.purple.name=Purple Cushion
+tile.cushions.blockCushion.red.name=Red Cushion
+tile.cushions.blockCushion.silver.name=Silver Cushion
+tile.cushions.blockCushion.white.name=White Cushion
+tile.cushions.blockCushion.yellow.name=Yellow Cushion
+tile.cushions.blockCushion.red.name=Red Cushion
+
+# Blocks
+block.Cushions.blockCushion.name=Cushion
