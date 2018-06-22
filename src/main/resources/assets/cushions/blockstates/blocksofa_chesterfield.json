@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "facing=east,shape=straight": { "model": "cushions:blocksofa_red_right","y" : 270},
+        "facing=south,shape=straight": { "model": "cushions:blocksofa_red_right", "y": 0 },
+        "facing=west,shape=straight": { "model": "cushions:blocksofa_red_right", "y": 90 },
+        "facing=north,shape=straight": { "model": "cushions:blocksofa_red_right", "y": 180 },
+        "facing=east,shape=left": { "model": "cushions:blocksofa_red_left","y" : 270},
+        "facing=south,shape=left": { "model": "cushions:blocksofa_red_left", "y": 0 },
+        "facing=west,shape=left": { "model": "cushions:blocksofa_red_left", "y": 90 },
+        "facing=north,shape=left": { "model": "cushions:blocksofa_red_left", "y": 180 },
+        "facing=east,shape=right": { "model": "cushions:blocksofa_red_middle","y" : 270},
+        "facing=south,shape=right": { "model": "cushions:blocksofa_red_middle", "y": 0 },
+        "facing=west,shape=right": { "model": "cushions:blocksofa_red_middle", "y": 90 },
+        "facing=north,shape=right": { "model": "cushions:blocksofa_red_middle", "y": 180 },        
+        "facing=east,shape=innercorner": { "model": "cushions:blocksofa_red_corner","y" : 270},
+        "facing=south,shape=innercorner": { "model": "cushions:blocksofa_red_corner", "y": 0 },
+        "facing=west,shape=innercorner": { "model": "cushions:blocksofa_red_corner", "y": 90 },
+        "facing=north,shape=innercorner": { "model": "cushions:blocksofa_red_corner", "y": 180 }
+    }
+}

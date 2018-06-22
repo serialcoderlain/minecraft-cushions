@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "IPI",
+        "IPI",
+        "IPI"
+    ],
+    "key": {
+        "P": {
+            "item": "minecraft:planks",
+            "data": 4
+        },
+        "I": {
+            "item": "minecraft:iron_ingot",
+            "data": 0
+        }
+    },
+    "result": {
+        "item": "cushions:blockchair_patio",
+        "data": 0,
+        "count": 1
+    }
+}

@@ -1,21 +1,21 @@
 {
     "variants": {
-        "normal": { "model": "cushions:blockCushion_white" },
-    	"color=blue": { "model": "cushions:blockCushion_blue" },
-    	"color=pink": { "model": "cushions:blockCushion_pink" },
-    	"color=white": { "model": "cushions:blockCushion_white" },
-    	"color=orange": { "model": "cushions:blockCushion_orange" },
-    	"color=magenta": { "model": "cushions:blockCushion_magenta" },
-    	"color=brown": { "model": "cushions:blockCushion_brown" },
-    	"color=red": { "model": "cushions:blockCushion_red" },
-    	"color=gray": { "model": "cushions:blockCushion_gray" },
-    	"color=cyan": { "model": "cushions:blockCushion_cyan" },
-    	"color=purple": { "model": "cushions:blockCushion_purple" },
-    	"color=light_blue": { "model": "cushions:blockCushion_lightBlue" },
-    	"color=silver": { "model": "cushions:blockCushion_silver" },
-    	"color=black": { "model": "cushions:blockCushion_black" },
-    	"color=green": { "model": "cushions:blockCushion_green" },
-    	"color=yellow": { "model": "cushions:blockCushion_yellow" },
-    	"color=lime": { "model": "cushions:blockCushion_lime" }
+        "normal": { "model": "cushions:blockcushion_white" },
+    	"color=blue": { "model": "cushions:blockcushion_blue" },
+    	"color=pink": { "model": "cushions:blockcushion_pink" },
+    	"color=white": { "model": "cushions:blockcushion_white" },
+    	"color=orange": { "model": "cushions:blockcushion_orange" },
+    	"color=magenta": { "model": "cushions:blockcushion_magenta" },
+    	"color=brown": { "model": "cushions:blockcushion_brown" },
+    	"color=red": { "model": "cushions:blockcushion_red" },
+    	"color=gray": { "model": "cushions:blockcushion_gray" },
+    	"color=cyan": { "model": "cushions:blockcushion_cyan" },
+    	"color=purple": { "model": "cushions:blockcushion_purple" },
+    	"color=light_blue": { "model": "cushions:blockcushion_lightblue" },
+    	"color=silver": { "model": "cushions:blockcushion_silver" },
+    	"color=black": { "model": "cushions:blockcushion_black" },
+    	"color=green": { "model": "cushions:blockcushion_green" },
+    	"color=yellow": { "model": "cushions:blockcushion_yellow" },
+    	"color=lime": { "model": "cushions:blockcushion_lime" }
     }
 }

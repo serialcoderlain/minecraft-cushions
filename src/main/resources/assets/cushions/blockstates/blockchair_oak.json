@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "facing=east": { "model": "cushions:blockchair_oak","y" : 270},
+        "facing=south": { "model": "cushions:blockchair_oak", "y": 0 },
+        "facing=west": { "model": "cushions:blockchair_oak", "y": 90 },
+        "facing=north": { "model": "cushions:blockchair_oak", "y": 180 },
+        "inventory": { "model": "cushions:blockchair_oak"}
+    }
+}

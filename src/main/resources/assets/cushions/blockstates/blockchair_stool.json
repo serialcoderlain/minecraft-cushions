@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=east": { "model": "cushions:blockchair_stool","y" : 270},
+        "facing=south": { "model": "cushions:blockchair_stool", "y": 0 },
+        "facing=west": { "model": "cushions:blockchair_stool", "y": 90 },
+        "facing=north": { "model": "cushions:blockchair_stool", "y": 180 }
+    }
+}

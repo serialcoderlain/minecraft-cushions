@@ -1,5 +1,5 @@
 {
-	"parent": "cushions:block/blockCushion_cyan",
+	"parent": "cushions:block/blockcushion_cyan",
 	"display": {
 		"thirdperson": {
 			"rotation": [ 10, -45, 170 ],

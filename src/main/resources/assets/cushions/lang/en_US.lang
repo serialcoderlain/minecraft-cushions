@@ -18,5 +18,14 @@ tile.cushions.blockCushion.white.name=White Cushion
 tile.cushions.blockCushion.yellow.name=Yellow Cushion
 tile.cushions.blockCushion.red.name=Red Cushion
 
+blockChair_oak.name=Oak chair
+blockChair_birch.name=Birch chair
+blockChair_patio.name=Patio chair
+blockChair_basic.name=Chair
+blockChair_high.name=High chair
+blockChair_stool.name=Stooooool
+blockSofa_chesterfield.name=Red sofa
+blockSofa_leather.name=Leather sofa
+
 # Blocks
-block.Cushions.blockCushion.name=Cushion
+block.cushions.blockCushion.name=Cushion

@@ -1,0 +1,10 @@
+{
+    "parent": "cushions:block/blocksofa_leather_middle",
+    "display": {
+		"thirdperson": {
+			"rotation": [ 0, 160, 180 ],
+			"translation": [ 0, 0, -4 ],
+			"scale": [ 0.75, 0.75, 0.75 ]
+		}
+	}
+}

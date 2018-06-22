@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "LLL",
+        "LLL",
+        "PPP"
+    ],
+    "key": {
+        "L": {
+            "item": "minecraft:leather",
+            "data": 0
+        },
+        "P": {
+            "item": "minecraft:planks",
+            "data": 0
+        }
+    },
+    "result": {
+        "item": "cushions:blocksofa_leather",
+        "data": 0,
+        "count": 1
+    }
+}

@@ -1,16 +1,16 @@
 [
-{
-  "modid": "cushions",
-  "name": "Cushions",
-  "description": "Cushions that allow players to sit down on them",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "https://github.com/serialcoderlain/minecraft-cushions",
-  "updateUrl": "",
-  "authorList": ["Serial Coder Lain"],
-  "credits": "The boyfriend",
-  "logoFile": "assets/cushions/scl.png",
-  "screenshots": [],
-  "dependencies": []
-}
+    {
+      "modid": "cushions",
+      "name": "Cushions",
+      "description": "Cushions that allow players to sit down on them",
+      "version": "${version}",
+      "mcversion": "${mcversion}",
+      "url": "https://github.com/serialcoderlain/minecraft-cushions",
+      "updateUrl": "",
+      "authorList": ["Serial Coder Lain"],
+      "credits": "The boyfriend",
+      "logoFile": "assets/cushions/scl.png",
+      "screenshots": [],
+      "dependencies": []
+    }
 ]

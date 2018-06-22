@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "P P",
+        "PWP",
+        "PHP"
+    ],
+    "key": {
+        "P": {
+            "item": "minecraft:log",
+            "data": 0
+        },
+        "W": {
+            "item": "minecraft:wool",
+            "data": 14
+        },
+        "H": {
+            "item": "minecraft:wooden_slab",
+            "data": 0
+        }        
+    },
+    "result": {
+        "item": "cushions:blockchair_oak",
+        "data": 0,
+        "count": 1
+    }
+}

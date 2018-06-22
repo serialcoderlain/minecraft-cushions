@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "PPP",
+        "PWP",
+        "PWP"
+    ],
+    "key": {
+        "P": {
+            "item": "minecraft:log",
+            "data": 0
+        },
+        "W": {
+            "item": "minecraft:wool",
+            "data": 14
+        }
+    },
+    "result": {
+        "item": "cushions:blockchair_high",
+        "data": 0,
+        "count": 1
+    }
+}

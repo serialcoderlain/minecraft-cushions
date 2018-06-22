@@ -1,0 +1,10 @@
+{
+  "parent": "cushions:block/blockchair_oak",
+    "display": {
+		"thirdperson": {
+			"rotation": [ 0, 0, 180 ],
+			"translation": [ 0, 0, -4.5 ],
+			"scale": [ 0.25, 0.25, 0.25 ]
+		}
+	}
+}
