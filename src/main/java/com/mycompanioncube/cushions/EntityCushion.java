@@ -1,8 +1,10 @@
 package com.mycompanioncube.cushions;
 
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 
 /**
  * Custom entity that the player "rides" in order to trigger the sitting
@@ -12,48 +14,65 @@ import net.minecraft.world.World;
  * @author Serial Coder Lain (serialcoderlain@gmail.com)
  *
  */
-public class EntityCushion extends EntityLivingBase {
-	public EntityCushion(World worldIn) {
+public class EntityCushion extends Entity {
+	protected double mountedYOffset = 0;
+
+	public EntityCushion(World worldIn, double mountHeight) {
 		super(worldIn);
-		setSize(0.5f, 0.01f);
+		mountedYOffset = mountHeight;
+		setSize(0.01f, 0.01f);
 	}
 
-	@Override	
-	public void onEntityUpdate() {		
+	public EntityCushion(World worldIn) {
+		this(worldIn, 0);
+	}
+
+	public void setMountedYOffset(double mountedYOffset) {
+		this.mountedYOffset = mountedYOffset;
+	}
+
+	@Override
+	protected boolean canBeRidden(Entity entityIn) {
+		return true;
+	}
+
+	@Override
+	protected boolean canFitPassenger(Entity passenger) {
+		return true;
+	}
+
+	@Override
+	public double getMountedYOffset() {
+		return mountedYOffset;
+	}
+
+	@Override
+	public void onEntityUpdate() {
 		super.onEntityUpdate();
-		
-		// Automatically die if there is no use for it
-		if (riddenByEntity == null)
-			setDead();
 	}
 
+	@Override
+	protected void removePassenger(Entity passenger) {
+		super.removePassenger(passenger);
+		setDead();
+	}
 	@Override
 	public boolean canBePushed() {
 		return false;
 	}
 
 	@Override
-	public ItemStack getHeldItem() {
-		return null;
+	protected void entityInit() {
 	}
 
 	@Override
-	public ItemStack getEquipmentInSlot(int slotIn) {
-		return null;
+	protected void readEntityFromNBT(NBTTagCompound tagCompund) {
+		mountedYOffset = tagCompund.getDouble("height");
 	}
 
 	@Override
-	public ItemStack getCurrentArmor(int slotIn) {
-		return null;
+	protected void writeEntityToNBT(NBTTagCompound tagCompound) {
+		tagCompound.setDouble("height", mountedYOffset);
 	}
 
-	@Override
-	public void setCurrentItemOrArmor(int slotIn, ItemStack stack) {
-	}
-	
-
-	@Override
-	public ItemStack[] getInventory() {
-		return new ItemStack[0];
-	}
 }
