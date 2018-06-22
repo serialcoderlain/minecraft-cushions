@@ -1,27 +1,20 @@
 package com.mycompanioncube.cushions;
 
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
-import net.minecraft.block.BlockWall;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.EnumDyeColor;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -33,21 +26,32 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * 
  * @author Serial Coder Lain (serialcoderlain@gmail.com)
  */
-public class BlockCushion extends Block {
+public class BlockChair extends Block {
 	/** Name of the block */
-	public static final String name = "blockCushion";
+	public static final String name = "blockChair";
+	protected double mountedYOffset = 0;
 
 	/** Colour property for this block */
-	public static final PropertyEnum<EnumDyeColor> COLOR = PropertyEnum.<EnumDyeColor>create("color",
-			EnumDyeColor.class);
+	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 
-	protected BlockCushion() {
+	private String type;
+
+	protected BlockChair(String type) {
+		this(type, 0);
+	}
+
+	protected BlockChair(String type, double mountHeight) {
 		super(Material.CARPET);
+		this.mountedYOffset = mountHeight;
+		this.type = type;
 		setHardness(0.5F);
 		setSoundType(SoundType.CLOTH);
-		setUnlocalizedName(Cushions.MODID + "." + name);
+		setRegistryName(name + "_" + type);
+		setUnlocalizedName(name + "_" + type);
+		setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 		setCreativeTab(CreativeTabs.DECORATIONS);
 		setTickRandomly(false);
+		setHarvestLevel("axe", 0);
 	}
 
 	@Override
@@ -55,33 +59,51 @@ public class BlockCushion extends Block {
 		return false;
 	}
 
-	public String getName() {
-		return name;
+	@Override
+	public String getUnlocalizedName() {
+		return name + "_" + type;
 	}
 
-	public boolean isFullCube() {
+	public String getName() {
+		return name + "_" + type;
+	}
+
+	@Override
+	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
 			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
- 		if (!worldIn.isRemote) {
+		if (!worldIn.isRemote) {
 			// Creates a dummy entity the player can ride in order to show the
 			// player as sitting
 			if (playerIn.getRidingEntity() == null
 					&& worldIn.getBlockState(pos.add(0, 1, 0)).getBlock() == Blocks.AIR) {
-
-				EntityCushion entity = new EntityCushion(worldIn, 0);
-				entity.setPosition(pos.getX() + 0.5, pos.getY() + 0.2, pos.getZ() + 0.5);
+				EntityCushion entity = new EntityCushion(worldIn, mountedYOffset);
+				entity.setPosition(pos.getX() + 0.5, pos.getY() + entity.getMountedYOffset() + 0.25, pos.getZ() + 0.5);
 				worldIn.spawnEntity(entity);
-				playerIn.startRiding(entity);
+				playerIn.startRiding(entity, true);
 			} else {
-				playerIn.startRiding(null);
+				if (playerIn != null)
+					playerIn.dismountRidingEntity();
 			}
 			return true;
 		}
 		return true;
+	}
+	
+
+	@Override
+	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+			float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
+		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+	}
+
+	@SideOnly(Side.CLIENT)
+	public IBlockState getStateForEntityRender(IBlockState state) {
+		return this.getDefaultState().withProperty(FACING, EnumFacing.SOUTH);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -91,28 +113,27 @@ public class BlockCushion extends Block {
 		return side == EnumFacing.UP ? true : super.shouldSideBeRendered(blockState, blockAccess, pos, side);
 	}
 
-	public int damageDropped(IBlockState state) {
-		return ((EnumDyeColor) state.getValue(COLOR)).getMetadata();
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item itemIn, CreativeTabs tab, List list) {
-		// Register all 16 subtypes
-		for (int i = 0; i < 16; ++i) {
-			list.add(new ItemStack(itemIn, 1, i));
-		}
-	}
-
 	public IBlockState getStateFromMeta(int meta) {
-		return this.getDefaultState().withProperty(COLOR, EnumDyeColor.byMetadata(meta));
+		EnumFacing enumfacing = EnumFacing.getFront(meta);
+
+		if (enumfacing.getAxis() == EnumFacing.Axis.Y) {
+			enumfacing = EnumFacing.NORTH;
+		}
+
+		return this.getDefaultState().withProperty(FACING, enumfacing);
 	}
 
 	public int getMetaFromState(IBlockState state) {
-		return ((EnumDyeColor) state.getValue(COLOR)).getMetadata();
+		return ((EnumFacing) state.getValue(FACING)).getIndex();
 	}
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { COLOR });
+		return new BlockStateContainer(this, new IProperty[] { FACING });
 	}
+
+	public String getTypeName() {
+		return name + "_" + type;
+	}
+
 }
